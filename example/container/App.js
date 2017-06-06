@@ -16,15 +16,18 @@ function mapStateToProps(state){
     }
 }
 
-// function mapDispatchToProps(dispatch){
-//     // return bindActionCreators(actionConnect, dispatch)
-//     return {
-//         getUrl : () => dispatch(fetchData)
-//     }
-//
-// }
-const mapDispatchToProps = {
-    getUrl: fetchData
+function mapDispatchToProps(dispatch){
+
+    return {
+        getUrl : function(url){
+            dispatch(fetchData(url))
+        }
+    }
+
 }
+//两种方式都可以
+// const mapDispatchToProps = {
+//     getUrl: fetchData
+// }
 
 export default connect(mapStateToProps,mapDispatchToProps)(ShowData);
